@@ -50,7 +50,7 @@ export default function Login() {
 	    	Swal.fire({
 	    		title: "Login Successful",
 	    		icon: "success",
-	    		text: "Welcome to Zuitt!"
+	    		text: `Welcome user`
 	    	})
 
 	    } else if (data.error === "No Email Found") {
@@ -76,7 +76,7 @@ export default function Login() {
 
 	const retrieveUserDetails = (token) => {
 
-		fetch('http://localhost:4006/b6/users/details', {
+		fetch(`${process.env.REACT_APP_API_URL}/users/details`, {
 			headers: {
 				Authorization: `Bearer ${token}`
 			}

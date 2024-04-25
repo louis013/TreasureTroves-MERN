@@ -4,11 +4,12 @@ import { useState, useEffect, useContext } from 'react';
 import {Form,Button} from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import "bootstrap/dist/css/bootstrap.min.css"
-// import UserContext from '../UserContext';
+import UserContext from '../UserContext';
+import { Navigate } from 'react-router-dom';
 
 export default function Login() {
 
-	// const { user, setUser } = useContext(UserContext);
+	const { user, setUser } = useContext(UserContext);
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -85,56 +86,53 @@ export default function Login() {
 		.then(data => {
 			console.log(data);
 
-			// setUser({
-			// 	id: data.user._id,
-			// 	isAdmin: data.user.isAdmin
-			// })
+			setUser({
+				id: data.user._id,
+				isAdmin: data.user.isAdmin
+			})
 		})
 	}
 
 
-    return (    
-         
-    	// (user.id !== null) 
-    	// ?
-    	// 	<Navigate to="/courses"/>
-    	// :
-    	// <Form className='bg-primary' onSubmit={(e) => authenticate(e)}>
+    return (
 
-    	// </Form>   
-        <div className='min-vh-100 d-flex justify-content-center align-items-center'>
-            <Form className='border w-50 p-4' onSubmit={(e) => authenticate(e)}>
-                <h1 className='my-3 text-center'>Login</h1>
-                <Form.Group className="mb-3" controlId="formGroupEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control 
-    	            type="email" 
-    	            placeholder="Enter email"
-    	            value={email}
-    	            onChange={(e) => setEmail(e.target.value)}
-    	            required
-    	            />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formGroupPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control 
-    	            type="password" 
-    	            placeholder="Password"
-    	            value={password}
-    	            onChange={(e) => setPassword(e.target.value)}
-    	            required
-    	            />
-                </Form.Group>
-                { isActive ? 
-    	        <Button className='w-100' variant="primary" type="submit" id="submitBtn">
-    	            Submit
-    	        </Button>
-    	        : 
-    	        <Button className='w-100' variant="danger" type="submit" id="submitBtn" disabled>
-    	            Submit
-    	        </Button>
-    	        }
-            </Form>   
-        </div>
+		(user.id !== null)
+		?
+			<Navigate to="/products"/>
+		: 
+			<div className='min-vh-100 d-flex justify-content-center align-items-center'>
+				<Form className='border w-50 p-4' onSubmit={(e) => authenticate(e)}>
+					<h1 className='my-3 text-center'>Login</h1>
+					<Form.Group className="mb-3" controlId="formGroupEmail">
+						<Form.Label>Email address</Form.Label>
+						<Form.Control 
+						type="email" 
+						placeholder="Enter email"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						required
+						/>
+					</Form.Group>
+					<Form.Group className="mb-3" controlId="formGroupPassword">
+						<Form.Label>Password</Form.Label>
+						<Form.Control 
+						type="password" 
+						placeholder="Password"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+						required
+						/>
+					</Form.Group>
+					{ isActive ? 
+					<Button className='w-100' variant="primary" type="submit" id="submitBtn">
+						Submit
+					</Button>
+					: 
+					<Button className='w-100' variant="danger" type="submit" id="submitBtn" disabled>
+						Submit
+					</Button>
+					}
+				</Form>   
+			</div>
     )   
 }

@@ -1,11 +1,8 @@
 import { useState, useEffect, useContext } from 'react';
-// import { Form, Button } from 'react-bootstrap';
-// import { Navigate } from 'react-router-dom';
 import {Form,Button} from 'react-bootstrap';
-import Swal from 'sweetalert2';
-import "bootstrap/dist/css/bootstrap.min.css"
-import UserContext from '../UserContext';
 import { Navigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import UserContext from '../UserContext';
 
 export default function Login() {
 
@@ -92,7 +89,6 @@ export default function Login() {
 			})
 		})
 	}
-
 
     return (
 

@@ -51,7 +51,7 @@ export default function ActivateProduct({ product, fetchData, isActive }) {
                 Swal.fire({
                     title: "Success",
                     icon: "success",
-                    text: "Product successfully disabled"
+                    text: "Product successfully acitvated"
                 })
                 fetchData();
             }

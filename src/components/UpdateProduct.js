@@ -64,7 +64,7 @@ export default function EditCourse({ product, fetchData }) {
 				Swal.fire({
 					title: "Success!",
 					icon: "success",
-					text: "Course successfully updated!"
+					text: "Product successfully updated!"
 				})
 				closeEdit();
 				fetchData();
@@ -79,7 +79,6 @@ export default function EditCourse({ product, fetchData }) {
 			}
 		})
 	}
-
 
 	return (
 		<>

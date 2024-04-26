@@ -9,7 +9,6 @@ export default function AdminView({ productsData, fetchData }) {
         const productArr = productsData.map(product => {
             return (
                 <tr key={product._id}>
-                    <td>{product._id}</td>
                     <td>{product.name}</td>
                     <td>{product.description}</td>
                     <td>{product.price}</td>
@@ -31,7 +30,6 @@ export default function AdminView({ productsData, fetchData }) {
             <Table striped bordered hover responsive>
                 <thead>
                     <tr className="text-center">
-                        <th>ID</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>

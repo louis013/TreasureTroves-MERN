@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Button, Table } from "react-bootstrap";
 import AddProduct from "./AddProduct";
+import ActivateProduct from "./ActivateProduct";
 
 export default function AdminView({ productsData, fetchData }) {
 
@@ -17,7 +18,7 @@ export default function AdminView({ productsData, fetchData }) {
                         {product.isActive ? "Available" : "Unavailable"}
                     </td>
                     <td><Button variant="primary">Edit</Button></td>
-                    <td><Button variant="danger">Archive</Button></td>
+                    <td><ActivateProduct product={product._id} fetchData={fetchData} isActive={product.isActive} /></td>
                 </tr>
             )
         })

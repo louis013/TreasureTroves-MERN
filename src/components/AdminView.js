@@ -14,7 +14,7 @@ export default function AdminView({ productsData, fetchData }) {
                 <tr key={product._id}>
                     <td>{product.name}</td>
                     <td>{product.description}</td>
-                    <td>{product.price}</td>
+                    <td>&#8369;{product.price}</td>
                     <td className={product.isActive ? "text-success" : "text-danger"}>
                         {product.isActive ? "Available" : "Unavailable"}
                     </td>

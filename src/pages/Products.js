@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import UserContext from "../UserContext"
 import AdminView from "../components/AdminView";
+import UserView from "../components/UserView";
 
 export default function Products() {
 
@@ -34,6 +35,16 @@ export default function Products() {
     }, [user])
 
     return (
-        <AdminView productsData={products} fetchData={fetchData}/>
+        <>
+            {
+                (user.isAdmin === true)
+                ?
+                    <AdminView productsData={products} fetchData={fetchData}/>
+                :
+                    <UserView productsData={products}/>
+            }
+
+        </>
+        
     )
 }

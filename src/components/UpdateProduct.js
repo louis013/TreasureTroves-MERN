@@ -87,7 +87,7 @@ export default function EditCourse({ product, fetchData }) {
 			<Modal show={showEdit} onHide={closeEdit}>
 				<Form onSubmit={e => editProduct(e, productId)}>
 					<Modal.Header closeButton>
-			        	<Modal.Title>Edit Course</Modal.Title>
+			        	<Modal.Title>Edit Product</Modal.Title>
 			        </Modal.Header>
 			        <Modal.Body>
 			        	<Form.Group className="mb-3">

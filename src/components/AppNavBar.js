@@ -23,7 +23,7 @@ export default function AppNavBar() {
                         user.isAdmin 
 					        	?
 					        	<>
-					        		<Nav.Link as={NavLink} to="/add-product">Add Product</Nav.Link>
+                                    <Nav.Link as={NavLink} to="/products">Products</Nav.Link>
 					        		<Nav.Link as={NavLink} to="/logout">Logout</Nav.Link>
 					        	</>
 					        	:

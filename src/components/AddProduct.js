@@ -91,10 +91,13 @@ export default function AddProduct({fetchData}){
     }
 
     return (   
-        <>
+        <>  
+            <div className='w-100 d-flex justify-content-center'>
             <Button variant='success' size="sm" onClick={() => openAddWindow()}>Add Product</Button>
+            </div>
+            
 
-            <Modal show={showAdd} onHide={closeAddWindow}>
+            <Modal className='' show={showAdd} onHide={closeAddWindow} centered>
                 <Form onSubmit={e => addProduct(e)}>
                     <Modal.Header closeButton>
                         <Modal.Title>Add Product</Modal.Title>
@@ -119,6 +122,7 @@ export default function AddProduct({fetchData}){
                     </Modal.Footer>
                 </Form>
             </Modal>
+           
         </>
     )
 }

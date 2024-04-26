@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Button, Table } from "react-bootstrap";
+import AddProduct from "./AddProduct";
 
 export default function AdminView({ productsData, fetchData }) {
 
@@ -26,6 +27,7 @@ export default function AdminView({ productsData, fetchData }) {
     return (
         <>
             <h1 className="text-center my-4"> Admin Dashboard</h1>
+            <AddProduct fetchData={fetchData}/>
             
             <Table striped bordered hover responsive>
                 <thead>

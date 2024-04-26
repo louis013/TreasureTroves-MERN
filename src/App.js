@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import { UserProvider } from './UserContext';
 import Logout from './pages/Logout';
 import Products from './pages/Products';
+import AddProduct from './components/AddProduct';
 
 function App() {
 

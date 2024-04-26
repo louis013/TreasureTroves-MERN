@@ -92,7 +92,7 @@ export default function AddProduct({fetchData}){
 
     return (   
         <>  
-            <div className='w-100 d-flex justify-content-center'>
+            <div className='w-100 mb-4 d-flex justify-content-center'>
             <Button variant='success' size="sm" onClick={() => openAddWindow()}>Add Product</Button>
             </div>
             

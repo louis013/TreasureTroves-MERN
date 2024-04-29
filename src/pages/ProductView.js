@@ -65,7 +65,7 @@ export default function CourseView() {
 					icon: 'success',
 					text: "You have successfully added this product."
 				})
-				navigate("/courses");
+				navigate("/products");
 
 			} else {
 				Swal.fire({

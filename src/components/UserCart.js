@@ -28,11 +28,10 @@ export default function UserCart({ cart, cartItems }) {
         <Row className="mt-3 mb-3 d-block">
             {validCartItems.map((item, index) => (
                 <Col key={index}>
-                    <Card id={`ProductComponent${index + 1}`}>
+                    <Card id={`ProductComponent${index + 1}`} className='mb-3'>
                         <Card.Body>
-                            <Card.Title>{productDetails[index]?.name}</Card.Title>
-                            <Card.Subtitle>Quantity</Card.Subtitle>
-                            <Card.Text>{item.quantity}</Card.Text>
+                            <Card.Title className='mb-3'>{productDetails[index]?.name}</Card.Title>
+                            <Card.Subtitle className='mb-3'>Quantity: {item.quantity}</Card.Subtitle>
                             <Card.Subtitle>Subtotal:</Card.Subtitle>
                             <Card.Text>Php {item.subtotal}</Card.Text>
                         </Card.Body>

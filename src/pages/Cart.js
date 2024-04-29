@@ -34,7 +34,7 @@ export default function Cart() {
         <>
             <h1 className="text-center">My Cart</h1>
             <UserCart cart={cart} cartItems={cartItems}/>
-            <h3>Total Price: {cart.totalPrice}</h3>
+            <h4>Total Price: &#8369;{cart.totalPrice}</h4>
         </>
     )
 }

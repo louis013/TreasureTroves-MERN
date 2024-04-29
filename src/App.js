@@ -10,7 +10,7 @@ import Login from './pages/Login';
 import { UserProvider } from './UserContext';
 import Logout from './pages/Logout';
 import Products from './pages/Products';
-import AddProduct from './components/AddProduct';
+import Cart from './pages/Cart';
 
 function App() {
 
@@ -57,6 +57,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />}/>
                         <Route path="/products" element={<Products />} />
+                        <Route path="/cart" element={<Cart />} />
                         <Route path="/register" element ={<Register />}/>
                         <Route path="/login" element={<Login />}/>
                         <Route path="/logout" element={<Logout />}/>

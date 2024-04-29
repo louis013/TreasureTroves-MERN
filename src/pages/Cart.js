@@ -65,11 +65,20 @@ export default function Cart() {
     }
 
     return (
-        <>
-            <h1 className="text-center">My Cart</h1>
-            <UserCart cart={cart} cartItems={cartItems}/>
-            <h4>Total Price: &#8369;{cart.totalPrice}</h4>
-            <Button variant="primary" onClick={createOrder}>Place Order</Button>
-        </>
+        (cartItems.length === 0)
+        ?
+            <>
+                <h1 className="text-center">My Cart</h1>
+                <UserCart cart={cart} cartItems={cartItems}/>
+                <h4>Total Price: &#8369;{cart.totalPrice}</h4>
+                <Button variant="primary" onClick={createOrder} disabled>Place Order</Button>
+            </>
+        :
+            <>
+                <h1 className="text-center">My Cart</h1>
+                <UserCart cart={cart} cartItems={cartItems}/>
+                <h4>Total Price: &#8369;{cart.totalPrice}</h4>
+                <Button variant="primary" onClick={createOrder}>Place Order</Button>
+            </>
     )
 }

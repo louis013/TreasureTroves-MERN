@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import UserContext from "../UserContext"
+import Card from 'react-bootstrap/Card';
+import { format } from 'date-fns';
 
 export default function Order() {
     const { user } = useContext(UserContext);
@@ -45,12 +47,14 @@ export default function Order() {
     const validCartItems = cartItems.filter(item => item);
 
     return (
-        <>
-            <h1 className="text-center">My Orders</h1>
-            <h3>Order ID: {order._id}</h3>
-            <p>Status: {order.status}</p>
-            <p>Ordered on: {order.orderedOn}</p>
-            <h4>Products Ordered</h4>
+        <div style={{minHeight: "90vh"}} className="d-flex justify-content-center align-items-center">
+        <Card className="w-50">
+        <Card.Body>
+            <Card.Title>My Order</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">Status: {order.status}</Card.Subtitle>
+            <Card.Text>
+            We received your order {order._id} on {format(order.orderedOn, 'dd/MM/yyyy')}
+            </Card.Text>
             <ul>
                 {validCartItems.map((item, index) => (
                     <li id={`ProductComponent${index + 1}`}>
@@ -60,7 +64,12 @@ export default function Order() {
                     </li>
                 ))}
             </ul>
-            <h3>Total Price: &#8369;{order.totalPrice}</h3>
-        </>
+            <div className="d-flex justify-content-end">
+                <p className="fs-4">Total Price: <span className="text-warning">&#8369;{order.totalPrice}</span> </p>
+            </div>
+            
+        </Card.Body>
+        </Card>
+        </div>
     )
 }

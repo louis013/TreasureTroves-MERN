@@ -11,6 +11,8 @@ import { UserProvider } from './UserContext';
 import Logout from './pages/Logout';
 import Products from './pages/Products';
 import Cart from './pages/Cart';
+import AddProduct from './components/AddProduct';
+import ProductView from './pages/ProductView'
 
 function App() {
 
@@ -58,6 +60,7 @@ function App() {
                         <Route path="/" element={<Home />}/>
                         <Route path="/products" element={<Products />} />
                         <Route path="/cart" element={<Cart />} />
+                        <Route path="/products/:productId" element={<ProductView />} />
                         <Route path="/register" element ={<Register />}/>
                         <Route path="/login" element={<Login />}/>
                         <Route path="/logout" element={<Logout />}/>

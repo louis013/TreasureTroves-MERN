@@ -12,7 +12,7 @@ export default function CourseView() {
 	// useParams hook allows us to retrieve the courseId passed via the URL
 	const { productId } = useParams()
 
-    const [ quantity, setQuantity ] = useState(0)
+    const [ quantity, setQuantity ] = useState(1)
 	const [ name, setName ] = useState("");
 	const [ description, setDescription] = useState("");
 	const [ price, setPrice ] = useState(0);
@@ -82,7 +82,7 @@ export default function CourseView() {
         setQuantity(increment => increment + 1)
     }
     const subQuantity = () => {
-        if(quantity > 0) {
+        if(quantity > 1) {
             setQuantity(increment => increment - 1)
         }
     }

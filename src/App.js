@@ -13,6 +13,7 @@ import Products from './pages/Products';
 import Cart from './pages/Cart';
 import AddProduct from './components/AddProduct';
 import ProductView from './pages/ProductView'
+import Order from './pages/Order';
 
 function App() {
 
@@ -60,6 +61,7 @@ function App() {
                         <Route path="/" element={<Home />}/>
                         <Route path="/products" element={<Products />} />
                         <Route path="/cart" element={<Cart />} />
+                        <Route path="/orders" element={<Order />} />
                         <Route path="/products/:productId" element={<ProductView />} />
                         <Route path="/register" element ={<Register />}/>
                         <Route path="/login" element={<Login />}/>

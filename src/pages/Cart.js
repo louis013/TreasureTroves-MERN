@@ -11,11 +11,10 @@ export default function Cart() {
 
     const navigate = useNavigate();
 
-    const [clear, setClear] = useState(false)
     const [cart, setCart] = useState([]);
     const [cartItems, setCartItems] = useState([])
 
-    useEffect(() => {
+    const fetchData = () => {
         fetch(`${process.env.REACT_APP_API_URL}/cart/get-cart`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -24,7 +23,7 @@ export default function Cart() {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            setClear(false)
+
             if(data.orders) {
                 setCart(data.orders);
                 setCartItems(data.orders.cartItems)
@@ -35,7 +34,12 @@ export default function Cart() {
                 setCartItems([]);
             }
         })
-    }, [user, clear])
+    }
+
+    useEffect(() => {
+        
+        fetchData();
+    }, [user])
 
     const createOrder = () => {
         fetch(`${process.env.REACT_APP_API_URL}/orders/checkout`, {
@@ -66,36 +70,37 @@ export default function Cart() {
     }
 
     const clearCart = async () => {
-        try {
-            const fetchData = await fetch(`${process.env.REACT_APP_API_URL}/cart/clear-cart`, {
-                method: 'PUT',
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
-            })
-            const message = await fetchData.json()
-            console.log(message)
-            setClear(true)
-            if(message.message === "Items removed from cart successfully") {
+        fetch(`${process.env.REACT_APP_API_URL}/cart/clear-cart`, {
+            method: 'PUT',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+
+            if(data.message === "Items removed from cart successfully") {
                 Swal.fire({
-                    title: "Cart Clear",
-                    icon: 'success',
-                    text: "Items removed from cart successfully."
-                })	
-            } 
-        } catch (error) {
-            Swal.fire({
-                title: "Failed to clear Cart",
-                icon: 'error',
-                text: "Server Error"
-            })	
-        }
+                    title: "Cleared cart",
+					icon: 'success',
+					text: "Cart cleared successfully"
+                })
+                fetchData()
+            }
+            else {
+                Swal.fire({
+                    title: "Something went wrong",
+					icon: 'error',
+					text: "Try again"
+                })
+            }
+        })
     }
 
     return (
         <>
         <h1 className="text-center">My Cart</h1>
-        <UserCart cart={cart} cartItems={cartItems}/>
+        <UserCart cart={cart} cartItems={cartItems} fetchData={fetchData}/>
         <h4>Total Price: &#8369;{cart.totalPrice}</h4>
         <div className="d-flex gap-4">
             {(cartItems.length === 0)

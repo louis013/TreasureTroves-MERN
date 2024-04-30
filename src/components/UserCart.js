@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Card, Button } from 'react-bootstrap';
+import Swal from 'sweetalert2';
 
-export default function UserCart({ cart, cartItems }) {
+export default function UserCart({ cart, cartItems, fetchData }) {
     const [productDetails, setProductDetails] = useState([]);
-    const [remove, setRemove] = useState(false)
 
     useEffect(() => {
         if (!cartItems || cartItems.length === 0) return;
@@ -16,8 +16,7 @@ export default function UserCart({ cart, cartItems }) {
                     setProductDetails(prevState => [...prevState, data.product]);
                 });
         });
-        setRemove(false)
-    }, [cartItems, remove]);
+    }, [cartItems]);
 
     if (!cart || !cartItems || cartItems.length === 0) {
         return <p>No items in cart</p>;
@@ -27,19 +26,31 @@ export default function UserCart({ cart, cartItems }) {
     const validCartItems = cartItems.filter(item => item);
 
     const removeItemCart = async (itemId) => {
-        try {
-            const fetchData = await fetch(`${process.env.REACT_APP_API_URL}/cart/${itemId}/remove-from-cart`,{
-                method:'PATCH',
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
-            })
-            const data = await fetchData.json()
-            console.log(data.message)
-            setRemove(true)
-        } catch (error) {
-            console.log(error)
-        }
+        fetch(`${process.env.REACT_APP_API_URL}/cart/${itemId}/remove-from-cart`,{
+            method:'PATCH',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+
+            if(data.message === 'Product removed from cart') {
+                Swal.fire({
+                    title: "Product removed from cart",
+					icon: 'success',
+					text: "Product has been removed from your cart"
+                })
+                fetchData();
+            }
+            else {
+                Swal.fire({
+                    title: "Something went wrong",
+					icon: 'error',
+					text: "Try again"
+                })
+            }
+        })
     }
 
     return (

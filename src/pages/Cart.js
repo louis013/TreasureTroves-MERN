@@ -100,7 +100,11 @@ export default function Cart() {
     return (
         <>
         <h1 className="text-center">My Cart</h1>
-        <UserCart cart={cart} cartItems={cartItems} fetchData={fetchData}/>
+        <div className="container w-50">
+            <div className="row">
+            <UserCart cart={cart} cartItems={cartItems} fetchData={fetchData}/>
+            </div>
+        </div>
         <h4>Total Price: &#8369;{cart.totalPrice}</h4>
         <div className="d-flex gap-4">
             {(cartItems.length === 0)

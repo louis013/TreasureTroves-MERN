@@ -56,7 +56,7 @@ function App() {
     return(
         <UserProvider value={{ user, setUser, unsetUser }}>
             <Router>
-                <Container fluid>
+                <Container>
                     <AppNavBar />
                     <Routes>
                         <Route path="/" element={<Home />}/>

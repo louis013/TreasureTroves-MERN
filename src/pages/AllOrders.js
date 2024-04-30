@@ -21,7 +21,7 @@ export default function AllOrders() {
                     const updatedOrders = await Promise.all(data.allOrders.map(async (order) => {
                         const updatedProducts = await Promise.all(order.productsOrdered.map(async (product) => {
                             try {
-                                const productResponse = await fetch(`${process.env.REACT_APP_API_URL}/products/${product.productId}`);
+                                const productResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${product.productId}`);
                                 const productData = await productResponse.json();
                                 return {
                                     ...product,

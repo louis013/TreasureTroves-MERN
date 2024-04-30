@@ -31,7 +31,7 @@ export default function Order() {
         if (!cartItems || cartItems.length === 0) return;
         
         cartItems.forEach((item, index) => {
-            fetch(`${process.env.REACT_APP_API_URL}/products/${item.productId}`)
+            fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${item.productId}`)
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data);

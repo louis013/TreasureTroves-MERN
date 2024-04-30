@@ -26,7 +26,12 @@ export default function UserView({ productsData }) {
     return (
         <>
             <h2 className="pt-4">Products</h2>
-            { products }
+            <div className="container">
+                <div className="row">
+                 { products }
+                </div>
+            </div>
+            
         </>
     )
 }

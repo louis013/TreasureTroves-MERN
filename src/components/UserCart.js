@@ -19,7 +19,7 @@ export default function UserCart({ cart, cartItems, fetchData }) {
     }, [cartItems]);
 
     if (!cart || !cartItems || cartItems.length === 0) {
-        return <p>No items in cart</p>;
+        return <h2 className='text-center my-5 text-warning'>No items in cart</h2>;
     }
 
     // Filter out undefined or null values from cartItems

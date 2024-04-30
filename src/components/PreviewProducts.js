@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import UserContext from "../UserContext";
 
 export default function PreviewProducts(props) {
+
+    const { user } = useContext(UserContext);
 
     const { breakPoint, data } = props;
     const {_id, name, description, price} = data;
@@ -15,7 +19,13 @@ export default function PreviewProducts(props) {
                 </Card.Body>
                 <Card.Footer>
                     <h5 className="text-center">Php {price}</h5>
-                    <Link className="btn btn-primary d-block">Details</Link>
+                    {
+                        (user.isAdmin === true)
+                        ?
+                        <Link className="btn btn-primary d-block" to={`products/`} >Details</Link>
+                        :
+                        <Link className="btn btn-primary d-block" to={`products/${_id}`} >Details</Link>
+                    }
                 </Card.Footer>
             </Card>
         </Col>

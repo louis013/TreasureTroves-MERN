@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Button, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import AddProduct from "./AddProduct";
 import ActivateProduct from "./ActivateProduct";
 import UpdateProduct from "./UpdateProduct"
@@ -24,7 +24,7 @@ export default function AdminView({ productsData, fetchData }) {
             )
         })
         setProducts(productArr)
-    }, [productsData])
+    }, [productsData, fetchData])
 
     return (
         <>

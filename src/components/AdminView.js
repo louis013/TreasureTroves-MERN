@@ -34,11 +34,11 @@ export default function AdminView({ productsData, fetchData }) {
             <Table striped bordered hover responsive>
                 <thead>
                     <tr className="text-center">
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Availability</th>
-                        <th colSpan="2">Actions</th>
+                        <th className="bg-dark text-light">Name</th>
+                        <th className="bg-dark text-light">Description</th>
+                        <th className="bg-dark text-light">Price</th>
+                        <th className="bg-dark text-light">Availability</th>
+                        <th colSpan="2" className="bg-dark text-light">Actions</th>
                     </tr>
                 </thead>
 

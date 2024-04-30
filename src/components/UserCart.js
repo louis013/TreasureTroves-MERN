@@ -7,15 +7,19 @@ export default function UserCart({ cart, cartItems, fetchData }) {
 
     useEffect(() => {
         if (!cartItems || cartItems.length === 0) return;
-
-        cartItems.forEach((item, index) => {
-            fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${item.productId}`)
-                .then(res => res.json())
-                .then(data => {
-                    // console.log(data);
-                    setProductDetails(prevState => [...prevState, data.product]);
-                });
-        });
+    
+        const fetchProductDetails = async () => {
+            const promises = cartItems.map(item =>
+                fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${item.productId}`)
+                    .then(res => res.json())
+                    .then(data => data.product)
+            );
+    
+            const products = await Promise.all(promises);
+            setProductDetails(products);
+        };
+    
+        fetchProductDetails();
     }, [cartItems]);
 
     if (!cart || !cartItems || cartItems.length === 0) {

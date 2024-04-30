@@ -11,6 +11,7 @@ export default function Cart() {
 
     const navigate = useNavigate();
 
+    const [clear, setClear] = useState(false)
     const [cart, setCart] = useState([]);
     const [cartItems, setCartItems] = useState([])
 
@@ -23,7 +24,7 @@ export default function Cart() {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-
+            setClear(false)
             if(data.orders) {
                 setCart(data.orders);
                 setCartItems(data.orders.cartItems)
@@ -34,7 +35,7 @@ export default function Cart() {
                 setCartItems([]);
             }
         })
-    }, [user])
+    }, [user, clear])
 
     const createOrder = () => {
         fetch(`${process.env.REACT_APP_API_URL}/orders/checkout`, {
@@ -64,21 +65,50 @@ export default function Cart() {
         })
     }
 
+    const clearCart = async () => {
+        try {
+            const fetchData = await fetch(`${process.env.REACT_APP_API_URL}/cart/clear-cart`, {
+                method: 'PUT',
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+            const message = await fetchData.json()
+            console.log(message)
+            setClear(true)
+            if(message.message === "Items removed from cart successfully") {
+                Swal.fire({
+                    title: "Cart Clear",
+                    icon: 'success',
+                    text: "Items removed from cart successfully."
+                })	
+            } 
+        } catch (error) {
+            Swal.fire({
+                title: "Failed to clear Cart",
+                icon: 'error',
+                text: "Server Error"
+            })	
+        }
+    }
+
     return (
-        (cartItems.length === 0)
-        ?
-            <>
-                <h1 className="text-center">My Cart</h1>
-                <UserCart cart={cart} cartItems={cartItems}/>
-                <h4>Total Price: &#8369;{cart.totalPrice}</h4>
+        <>
+        <h1 className="text-center">My Cart</h1>
+        <UserCart cart={cart} cartItems={cartItems}/>
+        <h4>Total Price: &#8369;{cart.totalPrice}</h4>
+        <div className="d-flex gap-4">
+            {(cartItems.length === 0)
+            ?
                 <Button variant="primary" onClick={createOrder} disabled>Place Order</Button>
-            </>
-        :
+            :     
             <>
-                <h1 className="text-center">My Cart</h1>
-                <UserCart cart={cart} cartItems={cartItems}/>
-                <h4>Total Price: &#8369;{cart.totalPrice}</h4>
                 <Button variant="primary" onClick={createOrder}>Place Order</Button>
+                <Button variant="warning" onClick={() => clearCart()}>Clear Cart</Button>
             </>
+            }
+            
+        </div>
+        </>
     )
 }

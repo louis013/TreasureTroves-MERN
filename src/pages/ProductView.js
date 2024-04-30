@@ -91,7 +91,7 @@ export default function CourseView() {
 		<Container className="mt-5">
             <Row>
                 <Col lg={{ span: 6, offset: 3 }}>
-                    <Card>
+                    <Card className='bg-secondary text-light'>
                         <Card.Body className="text-center">
                             <Card.Title>{name}</Card.Title>
                             <Card.Subtitle>Description:</Card.Subtitle>
@@ -102,11 +102,11 @@ export default function CourseView() {
                             	?
                                 <div className='d-flex justify-content-between gap-2'>
                                     <div className='d-flex gap-2'>
-                                        <Button variant='primary' onClick={() => subQuantity()}>-</Button>
+                                        <Button variant='light' className='text-secondary' onClick={() => subQuantity()}>-</Button>
                                         <div className='border px-3'>{quantity}</div>
-                                        <Button variant='primary' onClick={() => addQuantity()}>+</Button> 
+                                        <Button variant='light' className='text-secondary' onClick={() => addQuantity()}>+</Button> 
                                     </div>
-                                    <Button variant="primary" onClick={() => addToCart(productId)}>Add to Cart</Button>
+                                    <Button variant="light" className='text-secondary' onClick={() => addToCart(productId)}>Add to Cart</Button>
                                 </div>
                             	
                             	:

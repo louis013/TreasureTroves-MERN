@@ -59,7 +59,7 @@ export default function AllOrders() {
     return (
         (user.isAdmin === true)
         ?
-            <div style={{minHeight: "90vh"}} className="d-block justify-content-center align-items-center">
+            <div style={{minHeight: "90vh"}} className="d-block justify-content-center align-items-center container">
                 {orders.length === 0 ? (
                     <h3 className="text-center">No orders available</h3>
                 ) : (

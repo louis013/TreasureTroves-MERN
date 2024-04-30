@@ -15,7 +15,7 @@ export default function Cart() {
     const [cartItems, setCartItems] = useState([])
 
     const fetchData = () => {
-        fetch(`${process.env.REACT_APP_API_URL}/cart/get-cart`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/cart/get-cart`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -42,7 +42,7 @@ export default function Cart() {
     }, [user])
 
     const createOrder = () => {
-        fetch(`${process.env.REACT_APP_API_URL}/orders/checkout`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/orders/checkout`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export default function Cart() {
     }
 
     const clearCart = async () => {
-        fetch(`${process.env.REACT_APP_API_URL}/cart/clear-cart`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/cart/clear-cart`, {
             method: 'PUT',
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`

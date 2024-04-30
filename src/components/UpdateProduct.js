@@ -14,7 +14,7 @@ export default function EditCourse({ product, fetchData }) {
 
 	// function for opening the modal
 	const openEdit = (productId) => {
-		fetch(`${process.env.REACT_APP_API_URL}/products/${productId}`,{
+		fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${productId}`,{
             method: 'GET',
 			headers: {
 				"Content-Type": "application/json",
@@ -45,7 +45,7 @@ export default function EditCourse({ product, fetchData }) {
 	const editProduct = (e, productId) => {
 		e.preventDefault();
 
-		fetch(`${process.env.REACT_APP_API_URL}/products/${productId}/update`, {
+		fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${productId}/update`, {
 			method: 'PATCH',
 			headers: {
 				"Content-Type": "application/json",

@@ -6,7 +6,7 @@ export default function ActivateProduct({ product, fetchData, isActive }) {
     // Archiving product
     const archiveToggle = (productId) => {
 
-        fetch(`${process.env.REACT_APP_API_URL}/products/${productId}/archive`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${productId}/archive`, {
             method: 'PATCH',
             headers: {
                 "Content-type": "application/json",
@@ -37,7 +37,7 @@ export default function ActivateProduct({ product, fetchData, isActive }) {
     // Activating Product
     const activateToggle = (productId) => {
 
-        fetch(`${process.env.REACT_APP_API_URL}/products/${productId}/activate`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${productId}/activate`, {
             method: 'PATCH',
             headers: {
                 "Content-type": "application/json",

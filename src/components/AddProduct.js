@@ -27,7 +27,7 @@ export default function AddProduct({fetchData}){
         //prevents submit event's default behavior
         e.preventDefault();
 
-        fetch(`${process.env.REACT_APP_API_URL}/products/`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/products/`, {
 
             method: 'POST',
             headers: {

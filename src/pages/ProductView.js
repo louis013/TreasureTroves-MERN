@@ -21,7 +21,7 @@ export default function CourseView() {
 	useEffect(() => {
 		console.log(productId);
 
-		fetch(`${process.env.REACT_APP_API_URL}/products/${productId}`)
+		fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${productId}`)
 		.then(res => res.json())
 		.then(data => {
 			console.log(data)
@@ -36,7 +36,7 @@ export default function CourseView() {
     
 
 	const addToCart = (productId) => {
-		fetch(`${process.env.REACT_APP_API_URL}/cart/add-to-cart`, {
+		fetch(`${process.env.REACT_APP_API_BASE_URL}/cart/add-to-cart`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

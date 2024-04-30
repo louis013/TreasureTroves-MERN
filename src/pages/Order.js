@@ -10,7 +10,7 @@ export default function Order() {
     const [productDetails, setProductDetails] = useState([]);
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}/orders/my-orders`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/orders/my-orders`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }

@@ -10,7 +10,7 @@ export default function Products() {
     const [ products, setProducts ] = useState([]);
 
     const fetchData = () => {
-        let fetchUrl = user.isAdmin === true ? `${process.env.REACT_APP_API_URL}/products/all` : `${process.env.REACT_APP_API_URL}/products`
+        let fetchUrl = user.isAdmin === true ? `${process.env.REACT_APP_API_BASE_URL}/products/all` : `${process.env.REACT_APP_API_BASE_URL}/products`
 
         fetch(fetchUrl, {
             headers: {

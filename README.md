@@ -44,3 +44,4 @@
 
 **Checkout Order**
 * Add-to-cart functionality
+* Clear cart functionality

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState, useCallback } from "react"
 import UserContext from "../UserContext"
 import AdminView from "../components/AdminView";
 import UserView from "../components/UserView";
@@ -9,7 +9,7 @@ export default function Products() {
 
     const [ products, setProducts ] = useState([]);
 
-    const fetchData = () => {
+    const fetchData = useCallback(() => {
         let fetchUrl = user.isAdmin === true ? `${process.env.REACT_APP_API_BASE_URL}/products/all` : `${process.env.REACT_APP_API_BASE_URL}/products`
 
         fetch(fetchUrl, {
@@ -19,20 +19,19 @@ export default function Products() {
         })
         .then(res => res.json())
         .then(data => {
-
             if(typeof data.message !== "string") {
                 setProducts(data.products);
-            }
+            } 
             else {
-                setProducts([])
+                setProducts([]);
             }
-        })
-    }
+        });
+    }, [user]);
 
     useEffect(() => {
-
+        
         fetchData();
-    }, [user])
+    }, [fetchData]);
 
     return (
         <>

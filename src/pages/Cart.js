@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import UserContext from "../UserContext";
 import UserCart from "../components/UserCart";
 import Swal from "sweetalert2";
-import { Button } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
@@ -99,25 +99,28 @@ export default function Cart() {
 
     return (
         <>
-        <h1 className="text-center">My Cart</h1>
-        <div className="container w-50">
-            <div className="row">
-            <UserCart cart={cart} cartItems={cartItems} fetchData={fetchData}/>
+        <Container>
+            <h1 className="text-center">My Cart</h1>
+            <div className="container w-50">
+                <div className="row">
+                <UserCart cart={cart} cartItems={cartItems} fetchData={fetchData}/>
+                </div>
             </div>
-        </div>
-        <h4>Total Price: &#8369;{cart.totalPrice}</h4>
-        <div className="d-flex gap-4">
-            {(cartItems.length === 0)
-            ?
-                <Button variant="primary" onClick={createOrder} disabled>Place Order</Button>
-            :     
-            <>
-                <Button variant="primary" onClick={createOrder}>Place Order</Button>
-                <Button variant="warning" onClick={() => clearCart()}>Clear Cart</Button>
-            </>
-            }
-            
-        </div>
+            <h4>Total Price: &#8369;{cart.totalPrice}</h4>
+            <div className="d-flex gap-4">
+                {(cartItems.length === 0)
+                ?
+                    <Button variant="dark" onClick={createOrder} disabled>Place Order</Button>
+                :     
+                <>
+                    <Button variant="dark" onClick={createOrder}>Place Order</Button>
+                    <Button variant="warning" onClick={() => clearCart()}>Clear Cart</Button>
+                </>
+                }
+                
+            </div>
+        </Container>
+        
         </>
     )
 }

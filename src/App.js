@@ -15,6 +15,7 @@ import Error from './pages/Error';
 import ProductView from './pages/ProductView'
 import Order from './pages/Order';
 import AllOrders from './pages/AllOrders';
+import Profile from './pages/Profile';
 
 function App() {
 
@@ -56,10 +57,11 @@ function App() {
     return(
         <UserProvider value={{ user, setUser, unsetUser }}>
             <Router>
-                <Container>
+                <Container fluid>
                     <AppNavBar />
                     <Routes>
                         <Route path="/" element={<Home />}/>
+                        <Route path="/profile" element={<Profile />}/>
                         <Route path="/products" element={<Products />} />
                         <Route path="/cart" element={<Cart />} />
                         <Route path="/orders" element={<Order />} />

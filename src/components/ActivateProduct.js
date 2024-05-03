@@ -68,8 +68,8 @@ export default function ActivateProduct({ product, fetchData, isActive }) {
     return (
         isActive
             ?
-            <Button variant="danger" size="sm" onClick={() => archiveToggle(product)}>Archive</Button>
+            <Button variant="secondary" size="sm" onClick={() => archiveToggle(product)}>Archive</Button>
             :
-            <Button variant="success" size="sm" onClick={() => activateToggle(product)}>Activate</Button>
+            <Button variant="warning" size="sm" onClick={() => activateToggle(product)}>Activate</Button>
     )
 }

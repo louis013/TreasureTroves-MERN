@@ -61,10 +61,10 @@ export default function AllOrders() {
         ?
             <div style={{minHeight: "90vh"}} className="d-block justify-content-center align-items-center container">
                 {orders.length === 0 ? (
-                    <h3 className="text-center">No orders available</h3>
+                    <h3 className="text-center pt-5 text-warning">No orders available</h3>
                 ) : (
                     <div>
-                        <h1 className="text-center">Customers' Orders</h1>
+                        <h1 className="text-center pt-4">Customers' Orders</h1>
                         {orders.map(order => (
                             <Card key={order._id} className="mb-3">
                                 <Card.Body>

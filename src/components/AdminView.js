@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Table } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import AddProduct from "./AddProduct";
 import ActivateProduct from "./ActivateProduct";
 import UpdateProduct from "./UpdateProduct"
@@ -31,21 +31,24 @@ export default function AdminView({ productsData, fetchData }) {
             <h1 className="text-center my-4"> Admin Dashboard</h1>
             <AddProduct fetchData={fetchData}/>
             
-            <Table striped bordered hover responsive>
-                <thead>
-                    <tr className="text-center">
-                        <th className="bg-dark text-light">Name</th>
-                        <th className="bg-dark text-light">Description</th>
-                        <th className="bg-dark text-light">Price</th>
-                        <th className="bg-dark text-light">Availability</th>
-                        <th colSpan="2" className="bg-dark text-light">Actions</th>
-                    </tr>
-                </thead>
+            <Container>
+                <Table striped bordered hover responsive>
+                    <thead>
+                        <tr className="text-center">
+                            <th className="bg-dark text-light">Name</th>
+                            <th className="bg-dark text-light">Description</th>
+                            <th className="bg-dark text-light">Price</th>
+                            <th className="bg-dark text-light">Availability</th>
+                            <th colSpan="2" className="bg-dark text-light">Actions</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    {products}
-                </tbody>
-            </Table>    
+                    <tbody>
+                        {products}
+                    </tbody>
+                </Table>    
+            </Container>
+            
         </>
     )
 }

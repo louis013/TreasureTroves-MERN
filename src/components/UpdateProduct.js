@@ -82,7 +82,7 @@ export default function EditCourse({ product, fetchData }) {
 
 	return (
 		<>
-			<Button variant="primary" size="sm" onClick={() => openEdit(product)}>Edit</Button>
+			<Button variant="dark" size="sm" onClick={() => openEdit(product)}>Edit</Button>
 
 			<Modal show={showEdit} onHide={closeEdit}>
 				<Form onSubmit={e => editProduct(e, productId)}>
@@ -121,7 +121,7 @@ export default function EditCourse({ product, fetchData }) {
 			        </Modal.Body>
 			        <Modal.Footer>
 	                  	<Button variant="secondary" onClick={closeEdit}>Close</Button>
-	                  	<Button variant="primary" type="submit">Submit</Button>
+	                  	<Button variant="warning" type="submit">Submit</Button>
 	                </Modal.Footer>
 				</Form>
 			</Modal>

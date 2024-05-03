@@ -45,7 +45,7 @@ export default function Order() {
     }, [cartItems]);
 
     if (!order || !cartItems || cartItems.length === 0) {
-        return <h3 className="text-center">Please place an order first</h3>;
+        return <h3 className="text-center pt-5 text-warning">Please place an order first</h3>;
     }
 
     const validCartItems = cartItems.filter(item => item);

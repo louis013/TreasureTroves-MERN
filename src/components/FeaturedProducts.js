@@ -41,7 +41,7 @@ export default function FeaturedProoducts() {
 
     return (
         <>
-            <h2 className="text-center mb-5">Featured Products</h2>
+            <h2 className="text-center my-4">Featured Products</h2>
             <CardGroup className="justify-content-center">
                 {previews}
             </CardGroup>

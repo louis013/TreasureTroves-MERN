@@ -93,7 +93,7 @@ export default function AddProduct({fetchData}){
     return (   
         <>  
             <div className='w-100 mb-4 d-flex justify-content-center'>
-            <Button variant='success' size="sm" onClick={() => openAddWindow()}>Add Product</Button>
+            <Button variant='dark' size="sm" onClick={() => openAddWindow()}>Add Product</Button>
             </div>
             
 
@@ -125,7 +125,7 @@ export default function AddProduct({fetchData}){
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={closeAddWindow}>Close</Button>
-                        <Button variant="primary" type="submit">Add</Button>
+                        <Button variant="warning" type="submit">Add</Button>
                     </Modal.Footer>
                 </Form>
             </Modal>

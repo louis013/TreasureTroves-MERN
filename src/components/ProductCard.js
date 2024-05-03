@@ -11,7 +11,7 @@ export default function ProductCard({products}) {
                     <Card.Body className='d-flex flex-column justify-content-between'>
                         <div>
                             <Card.Title>{name}</Card.Title>
-                            <Card.Subtitle>Description</Card.Subtitle>
+                            <Card.Subtitle className='pt-2'>Description</Card.Subtitle>
                             <Card.Text>{description}</Card.Text>
                             <Card.Subtitle>Price:</Card.Subtitle>
                             <Card.Text>Php {price}</Card.Text>

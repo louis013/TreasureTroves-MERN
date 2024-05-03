@@ -120,11 +120,11 @@ export default function Login() {
 						/>
 					</Form.Group>
 					{ isActive ? 
-					<Button className='w-100' variant="primary" type="submit" id="submitBtn">
+					<Button className='w-100' variant="dark" type="submit" id="submitBtn">
 						Submit
 					</Button>
 					: 
-					<Button className='w-100' variant="danger" type="submit" id="submitBtn" disabled>
+					<Button className='w-100' variant="dark" type="submit" id="submitBtn" disabled>
 						Submit
 					</Button>
 					}

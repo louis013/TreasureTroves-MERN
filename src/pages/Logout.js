@@ -15,7 +15,7 @@ export default function Logout() {
             id: null,
             isAdmin: null
         })
-    }, [])
+    }, [setUser])
 
     return (
         <Navigate to="/login"/>

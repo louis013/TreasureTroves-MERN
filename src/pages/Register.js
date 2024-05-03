@@ -159,9 +159,9 @@ export default function Register() {
                     {
                         isActive
                         ?
-                        <Button variant="primary" type="submit" className="w-100">Submit</Button>
+                        <Button variant="dark" type="submit" className="w-100">Submit</Button>
                         :
-                        <Button variant="danger" type="submit" className="w-100" disabled>Submit</Button>
+                        <Button variant="dark" type="submit" className="w-100" disabled>Submit</Button>
                     }
                 </Form>
             </div>

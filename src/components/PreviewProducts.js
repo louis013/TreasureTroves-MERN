@@ -22,9 +22,9 @@ export default function PreviewProducts(props) {
                     {
                         (user.isAdmin === true)
                         ?
-                        <Link className="btn btn-primary d-block" to={`products/`} >Details</Link>
+                        <Link className="btn btn-dark d-block" to={`products/`} >Details</Link>
                         :
-                        <Link className="btn btn-primary d-block" to={`products/${_id}`} >Details</Link>
+                        <Link className="btn btn-dark d-block" to={`products/${_id}`} >Details</Link>
                     }
                 </Card.Footer>
             </Card>

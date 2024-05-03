@@ -1,4 +1,5 @@
-import { Button, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function Banner({ title, subtitle, buttonText, buttonLink}) {
 
@@ -8,7 +9,7 @@ export default function Banner({ title, subtitle, buttonText, buttonLink}) {
             <Col className="text-center p-3">
                 <h1>{title}</h1>
                 <p>{subtitle}</p>
-                <Button variant="dark" href={buttonLink}>{buttonText}</Button>
+                <Link className="btn btn-dark text-light" to={buttonLink}>{buttonText}</Link>
             </Col>
         </Row>
     )

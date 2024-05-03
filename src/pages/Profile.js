@@ -3,19 +3,13 @@ import { Row, Col, Container } from 'react-bootstrap';
 import UserContext from "../UserContext";
 import Swal from "sweetalert2";
 import { Navigate } from "react-router-dom";
+import ResetPassword from "../components/ResetPassword";
 
 export default function Profile() {
 
     const { user } = useContext(UserContext);
 
     const [ details, setDetails ] = useState([]);
-
-    // const handleUpdateProfile = (updateData) => {
-    //     setDetails(prevDetails => ({
-    //         ...prevDetails,
-    //         ...updateData
-    //     }))
-    // }
 
     useEffect(() => {
 
@@ -56,18 +50,19 @@ export default function Profile() {
         <>
         <Container>
             <Row>
-                    <Col>
-                        <h1 className="mt-5 mb-3 ">Profile</h1>
-                        <img src="/profile.png" alt="" width={'200px'} height={'auto'} className="border border-3 border-dark" />
-                        <h2 className="mt-3">{`${details.firstName} ${details.lastName}`}</h2>
-                        <hr />
-                        <h4>Contacts</h4>
-                        <ul>
-                            <li>Email: {details.email}</li>
-                            <li>Mobile No: {details.mobileNo}</li>
-                        </ul>
-                    </Col>
-                </Row>
+                <Col>
+                    <h1 className="mt-5 mb-3 ">Profile</h1>
+                    <img src="/profile.png" alt="" width={'200px'} height={'auto'} className="border border-3 border-dark" />
+                    <h2 className="mt-3">{`${details.firstName} ${details.lastName}`}</h2>
+                    <ResetPassword />
+                    <hr />
+                    <h4>Contacts</h4>
+                    <ul>
+                        <li>Email: {details.email}</li>
+                        <li>Mobile No: {details.mobileNo}</li>
+                    </ul>
+                </Col>
+            </Row>
         </Container>
             
         </>
